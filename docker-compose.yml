@@ -1,0 +1,47 @@
+services:
+  mysql:
+    image: mysql:8
+    platform: linux/amd64
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_PORT=3306
+      - MYSQL_ROOT_PASSWORD=demo
+      - MYSQL_USER=demo
+      - MYSQL_PASSWORD=demo
+      - MYSQL_DATABASE=demo
+  postgres:
+    image: postgres:13
+    platform: linux/amd64
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=demo
+      - POSTGRES_PASSWORD=demo
+      - POSTGRES_DATABASE=demo
+  mariadb:
+    image: mariadb:10
+    platform: linux/amd64
+    ports:
+      - 3307:3306
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_PORT=3306
+      - MYSQL_ROOT_PASSWORD=demo
+      - MYSQL_USER=demo
+      - MYSQL_PASSWORD=demo
+      - MYSQL_DATABASE=demo
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    platform: linux/amd64
+    ports:
+      - 1433:1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=demo
+  http:
+    image: ealen/echo-server:latest
+    platform: linux/amd64
+    ports:
+      - 8080:80

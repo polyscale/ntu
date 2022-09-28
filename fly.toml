@@ -1,0 +1,16 @@
+# fly.toml file generated for ntu on 2022-09-20T09:48:56+01:00
+
+app = "ntu"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[build]
+  image = "ghcr.io/polyscale/ntu-worker:latest"
+
+
+[env]
+  TEST="latency"
+  PROTOCOL="postgres"
+  QUERY="select 1;"
+  URL="postgres://[USERNAME]:[PASSWORD]@psedge.global:5432/[DATABASE]?application_name=[CACHE_ID]"

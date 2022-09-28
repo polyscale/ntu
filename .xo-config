@@ -1,0 +1,25 @@
+{
+  "space": true,
+  "prettier": true,
+  "rules": {
+    "import/extensions": [
+      "error",
+      {
+        "ts": "never"
+      }
+    ],
+    "n/file-extension-in-import": "off",
+    "default-case": "off",
+    "new-cap": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": [
+          "camelCase",
+          "UPPER_CASE"
+        ]
+      }
+    ]
+  }
+}

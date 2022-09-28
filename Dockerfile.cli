@@ -1,0 +1,18 @@
+FROM node:18-alpine
+
+WORKDIR /ntu
+
+COPY package.json .
+COPY pnpm-lock.yaml .
+
+RUN npm i pnpm -g
+
+RUN pnpm install
+
+COPY . .
+
+RUN pnpm run build
+
+RUN npm link
+
+ENTRYPOINT ["ntu"]
