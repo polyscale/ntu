@@ -3,22 +3,12 @@ import type { LatencyTestResult } from "../tests/latency";
 
 export const reportLatencyTestResult = async (
   result: LatencyTestResult,
-  testTarget: string,
   reportTargets: { slack?: IncomingWebhook }
 ) => {
   console.table(result);
 
   await reportTargets.slack?.send({
     blocks: [
-      {
-        type: "context",
-        elements: [
-          {
-            type: "mrkdwn",
-            text: `🎯 *Target:* ${testTarget}`,
-          },
-        ],
-      },
       {
         type: "section",
         text: {

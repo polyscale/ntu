@@ -3,22 +3,12 @@ import type { LoadTestResult } from "../tests/load";
 
 export const reportLoadTestResult = async (
   result: LoadTestResult,
-  testTarget: string,
   reportTargets: { slack?: IncomingWebhook }
 ) => {
   console.table(result);
 
   await reportTargets.slack?.send({
     blocks: [
-      {
-        type: "context",
-        elements: [
-          {
-            type: "mrkdwn",
-            text: `🎯 *Target:* ${testTarget}`,
-          },
-        ],
-      },
       {
         type: "section",
         text: {

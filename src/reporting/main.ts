@@ -15,11 +15,11 @@ export const reportTestResult = async (
 
   switch (result.type) {
     case "latency": {
-      return reportLatencyTestResult(result.result, args.target, { slack });
+      return reportLatencyTestResult(result.result, { slack });
     }
 
     case "load": {
-      return reportLoadTestResult(result.result, args.target, { slack });
+      return reportLoadTestResult(result.result, { slack });
     }
 
     default:
